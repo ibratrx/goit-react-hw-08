@@ -1,4 +1,10 @@
-.contactList {
-    list-style: none;
-    padding: 0;
-  }
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}

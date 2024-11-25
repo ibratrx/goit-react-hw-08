@@ -1,36 +1,47 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/auth/authOperations';
+import styles from './LoginForm.module.css';
 
-const LoginForm = ({ onSubmit }) => {
-  const validationSchema = Yup.object({
-    email: Yup.string().email("Invalid email").required("Required"),
-    password: Yup.string().required("Required"),
-  });
+const LoginForm = () => {
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  
+ const handleSubmit = (e) => {
+  e.preventDefault();
+  console.log({ email, password }); // Перевірка, що дані відправляються
+  dispatch(login({ email, password }));
+  setEmail('');
+  setPassword('');
+};
 
   return (
-    <Formik
-      initialValues={{ email: "", password: "" }}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      <Form>
-        <label className="labelLogin" htmlFor="email">
-          Email
-        </label>
-        <Field name="email" type="email" />
-        <ErrorMessage name="email" />
-
-        <label className="labelLogin" htmlFor="password">
-          Password
-        </label>
-        <Field name="password" type="password" />
-        <ErrorMessage name="password" />
-
-        <button type="submit">Login</button>
-      </Form>
-    </Formik>
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <label className={styles.label}>
+        Email
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className={styles.input}
+        />
+      </label>
+      <label className={styles.label}>
+        Password
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          className={styles.input}
+        />
+      </label>
+      <button type="submit" className={styles.button}>
+        Login
+      </button>
+    </form>
   );
 };
 

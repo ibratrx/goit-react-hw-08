@@ -11,14 +11,12 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
 }
 
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
-  
 }
 a:hover {
   color: #535bf2;
@@ -30,7 +28,6 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  
 }
 
 h1 {
@@ -68,39 +65,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-
-.labelLogin { 
- color: white;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.labelSearch {
- color: #ffffff;
-}
-
-label {
-  color: black;
-}
-
-.welcomeUser {
-  font-weight: 500;
-  font-size: larger;
-  color: greenyellow;
-}
-
-.navigation {
-  display: flex;
-  justify-content: center;
-}
-
-.navlist {
-  display: flex;
-  gap: 100px;
-
-}
-
-.ReactModalPortal {
-  color: black;
 }
